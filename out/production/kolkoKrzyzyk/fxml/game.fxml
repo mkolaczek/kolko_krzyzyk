@@ -17,14 +17,14 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <BorderPane onMouseClicked="#touch00" prefHeight="200.0" prefWidth="200.0" />
-      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
-      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
-      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
-      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <BorderPane fx:id="borderPane00" onMouseClicked="#touch00" prefHeight="200.0" prefWidth="200.0" />
+      <BorderPane fx:id="borderPane10" onMouseClicked="#touch10" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+      <BorderPane fx:id="borderPane20" onMouseClicked="#touch20" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+      <BorderPane fx:id="borderPane01" onMouseClicked="#touch01" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+      <BorderPane fx:id="borderPane11" onMouseClicked="#touch11" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <BorderPane fx:id="borderPane21" onMouseClicked="#touch21" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <BorderPane fx:id="borderPane02" onMouseClicked="#touch02" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+      <BorderPane fx:id="borderPane12" onMouseClicked="#touch12" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <BorderPane fx:id="borderPane22" onMouseClicked="#touch22" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    </children>
 </GridPane>
