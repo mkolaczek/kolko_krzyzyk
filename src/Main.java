@@ -16,7 +16,12 @@ public class Main extends Application {
         loader.setLocation(this.getClass().getResource("/fxml/game.fxml"));
 
         GridPane gridPane = loader.load();
-//        GameController gameController = loader.getController();
+        LogicGame logicGame = new LogicGame();
+
+        GameController gameController = loader.getController();
+        gameController.setLogicGame(logicGame);
+        logicGame.setGridPane(gridPane);
+        
         primaryStage.setTitle("Kółko i krzyżyk");
         primaryStage.setScene(new Scene(gridPane, 400, 400));
 
