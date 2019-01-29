@@ -20,7 +20,7 @@ public class Main extends Application {
 
         GameController gameController = loader.getController();
         gameController.setLogicGame(logicGame);
-        logicGame.setGridPane(gridPane);
+        logicGame.setPrimaryStage(primaryStage);
         
         primaryStage.setTitle("Kółko i krzyżyk");
         primaryStage.setScene(new Scene(gridPane, 400, 400));

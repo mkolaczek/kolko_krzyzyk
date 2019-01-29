@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="37.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="gracz &quot;O&quot;">
+         <font>
+            <Font size="72.0" />
+         </font>
+      </Text>
+      <Text layoutX="100.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wygrał">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
