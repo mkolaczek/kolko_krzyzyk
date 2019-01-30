@@ -11,6 +11,12 @@ public class LogicGame {
     private static int counter = 0;
     private int playerX = 1, playerO = 2;
     private Stage primaryStage;
+    private ListenThread listenThread;
+
+    public void setListenThread(ListenThread listenThread) {
+        this.listenThread = listenThread;
+    }
+
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -74,6 +80,7 @@ public class LogicGame {
             } else {
                 showWinO();
             }
+            listenThread.shutdown();
         }
 
         if (circleOrCross[0][2] == player && circleOrCross[1][1] == player && circleOrCross[2][0] == player) {
@@ -84,6 +91,7 @@ public class LogicGame {
             } else {
                 showWinO();
             }
+            listenThread.shutdown();
         }
 
         for (int i = 0; i < 3; i++) {
@@ -94,6 +102,7 @@ public class LogicGame {
                 } else {
                     showWinO();
                 }
+                listenThread.shutdown();
             }
 
             if (circleOrCross[0][i] == player && circleOrCross[1][i] == player && circleOrCross[2][i] == player) {
@@ -103,10 +112,12 @@ public class LogicGame {
                 } else {
                     showWinO();
                 }
+                listenThread.shutdown();
             }
         }
         if (condition == 0 && counter == 9) {
             showDraw();
+            listenThread.shutdown();
         }
 
     }

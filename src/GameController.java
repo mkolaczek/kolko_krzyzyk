@@ -3,14 +3,84 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.InetAddress;
+import java.net.MulticastSocket;
+import java.net.UnknownHostException;
+
 public class GameController {
 
     private Label labelX;
     private Label labelO;
     private LogicGame logicGame;
+    private MulticastSocket socket;
+    private InetAddress group;
+
+    public BorderPane getBorderPane00() {
+        return borderPane00;
+    }
+
+    public BorderPane getBorderPane10() {
+        return borderPane10;
+    }
+
+    public BorderPane getBorderPane20() {
+        return borderPane20;
+    }
+
+    public BorderPane getBorderPane01() {
+        return borderPane01;
+    }
+
+    public BorderPane getBorderPane11() {
+        return borderPane11;
+    }
+
+    public BorderPane getBorderPane21() {
+        return borderPane21;
+    }
+
+    public BorderPane getBorderPane02() {
+        return borderPane02;
+    }
+
+    public BorderPane getBorderPane12() {
+        return borderPane12;
+    }
+
+    public BorderPane getBorderPane22() {
+        return borderPane22;
+    }
+
+    public GameController() {
+
+        try {
+            this.group = InetAddress.getByName("239.0.0.222");
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        try {
+            this.socket = new MulticastSocket(5000);
+            socket.joinGroup(group);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void setLogicGame(LogicGame logicGame) {
         this.logicGame = logicGame;
+    }
+
+    private void sendMsg(String touch){
+        DatagramPacket msg = new DatagramPacket(touch.getBytes(), touch.length(),
+                group, 5000);
+        try {
+            socket.send(msg);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -42,63 +112,54 @@ public class GameController {
 
     @FXML
     void touch00(MouseEvent event) {
-        if (logicGame.getCircleOrCross(0, 0) == 0)
-            setCircleOrCross(borderPane00, 0, 0);
-
+        sendMsg("touch00");
     }
 
     @FXML
     void touch01(MouseEvent event) {
-        if (logicGame.getCircleOrCross(0, 1) == 0)
-            setCircleOrCross(borderPane01, 0, 1);
+        sendMsg("touch01");
     }
 
     @FXML
     void touch02(MouseEvent event) {
-        if (logicGame.getCircleOrCross(0, 2) == 0)
-            setCircleOrCross(borderPane02, 0, 2);
+        sendMsg("touch02");
     }
 
     @FXML
     void touch10(MouseEvent event) {
-        if (logicGame.getCircleOrCross(1, 0) == 0)
-            setCircleOrCross(borderPane10, 1, 0);
+        sendMsg("touch10");
     }
 
     @FXML
     void touch11(MouseEvent event) {
-        if (logicGame.getCircleOrCross(1, 1) == 0)
-            setCircleOrCross(borderPane11, 1, 1);
+        sendMsg("touch11");
     }
 
     @FXML
     void touch12(MouseEvent event) {
-        if (logicGame.getCircleOrCross(1, 2) == 0)
-            setCircleOrCross(borderPane12, 1, 2);
+        sendMsg("touch12");
     }
 
     @FXML
     void touch20(MouseEvent event) {
-        if (logicGame.getCircleOrCross(2, 0) == 0)
-            setCircleOrCross(borderPane20, 2, 0);
+        sendMsg("touch20");
     }
 
     @FXML
     void touch21(MouseEvent event) {
-        if (logicGame.getCircleOrCross(2, 1) == 0)
-            setCircleOrCross(borderPane21, 2, 1);
+        sendMsg("touch21");
     }
 
     @FXML
     void touch22(MouseEvent event) {
-        if (logicGame.getCircleOrCross(2, 2) == 0)
-            setCircleOrCross(borderPane22, 2, 2);
+        sendMsg("touch22");
     }
 
     // 1 to krzyzyk
     // 2 to kolko
-    private void setCircleOrCross(BorderPane borderPane, int column, int row) {
+   public void setCircleOrCross(BorderPane borderPane, int column, int row) {
         int counter = logicGame.move();
+
         if (counter % 2 == 0) {
             LabelX labelX = new LabelX();
             borderPane.setCenter(labelX.getLabelX());
